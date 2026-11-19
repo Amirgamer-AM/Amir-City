@@ -1,69 +1,462 @@
-<!doctype html>
+
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>AMIR CITY</title>
-  <style>
-    :root{--bg:#070a15;--panel:#10162a;--cyan:#41ddff;--violet:#8868ff;--pink:#ff50ab;--text:#f7f8ff;--muted:#929ab5}
-    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Tahoma,Arial,sans-serif}button,input,select{font:inherit}button{cursor:pointer}a{color:inherit;text-decoration:none}
-    header{position:sticky;top:0;z-index:20;background:#070a15df;backdrop-filter:blur(18px);border-bottom:1px solid #ffffff12}.nav{height:74px;max-width:1160px;margin:auto;padding:0 22px;display:flex;align-items:center;justify-content:space-between}.logo{direction:ltr;display:flex;align-items:center;gap:10px;font:900 18px Arial;letter-spacing:1px}.logo i{font-style:normal;width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:linear-gradient(135deg,var(--cyan),var(--violet))}.links{display:flex;gap:27px;align-items:center;color:#bbc2d8;font-size:13px}.links button{border:0;background:none;color:inherit}.actions{display:flex;gap:8px}.adminBtn,.cartBtn{border:1px solid #35405e;border-radius:11px;padding:10px 13px;background:#151c31;color:white}.adminBtn{color:var(--cyan);border-color:#41ddff66}.cartBtn{position:relative}.cartBtn b{position:absolute;top:-8px;left:-6px;width:20px;height:20px;border-radius:50%;display:grid;place-items:center;background:var(--pink);font-size:10px}
-    .hero{min-height:620px;max-width:1160px;margin:auto;padding:75px 35px;display:grid;grid-template-columns:1fr 1fr;align-items:center}.tag{display:inline-block;padding:9px 14px;border:1px solid #41ddff4d;background:#41ddff0f;border-radius:99px;color:var(--cyan);font-size:12px}.hero h1{font-size:clamp(51px,7vw,82px);line-height:1.08;margin:22px 0;letter-spacing:-3px}.hero h1 span{color:transparent;background:linear-gradient(90deg,var(--cyan),var(--violet),var(--pink));background-clip:text}.hero p{max-width:550px;color:var(--muted);line-height:2}.cta{display:inline-block;margin-top:20px;padding:15px 27px;border-radius:13px;background:linear-gradient(100deg,var(--cyan),var(--violet));color:#06101b;font-weight:900}.art{height:420px;position:relative;display:grid;place-items:center}.orb{position:absolute;width:340px;height:340px;border-radius:50%;background:#8a69ff1e;box-shadow:0 0 120px #8a69ff33}.city{position:relative;font-size:170px;filter:drop-shadow(0 0 30px #41ddff55)}.float{position:absolute;padding:10px 14px;border:1px solid #ffffff22;border-radius:11px;background:#101528d9;font:800 10px Arial;letter-spacing:2px}.f1{right:20px;top:75px;color:var(--cyan)}.f2{left:15px;bottom:70px;color:var(--pink)}
-    .store{max-width:1160px;margin:auto;padding:75px 25px}.head{text-align:center;margin-bottom:55px}.head small{color:var(--pink);font-weight:800}.head h2{font-size:clamp(34px,5vw,51px);margin:12px}.head p{color:var(--muted)}.category{font-size:23px;margin:50px 0 20px}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:19px}.product{overflow:hidden;border:1px solid #262e49;border-radius:21px;background:var(--panel);transition:.25s}.product:hover{transform:translateY(-5px);border-color:#465273}.visual{height:175px;display:grid;place-items:center;position:relative;background:radial-gradient(circle,#41ddff20,transparent 62%),linear-gradient(145deg,#151b34,#0a0e1d);font-size:73px}.visual.pool{background:radial-gradient(circle,#8868ff30,transparent 62%),linear-gradient(145deg,#151b34,#0a0e1d)}.visual small{position:absolute;left:14px;top:14px;font:800 9px Arial;letter-spacing:2px;color:var(--cyan)}.info{padding:21px}.info>small{color:var(--cyan)}.info h3{font-size:21px;margin:9px 0}.info p{height:47px;color:var(--muted);font-size:13px;line-height:1.8}.buyrow{display:flex;justify-content:space-between;align-items:center;margin-top:19px}.buyrow b{color:var(--cyan)}.buyrow button,.primary{border:0;border-radius:10px;padding:10px 14px;background:#eff2ff;color:#091021;font-weight:900}
-    .steps{max-width:1110px;margin:25px auto 90px;padding:40px;display:grid;grid-template-columns:repeat(3,1fr);gap:30px;border:1px solid #323a58;border-radius:25px;background:linear-gradient(120deg,#151b35,#1d132e)}.steps b{display:grid;place-items:center;width:40px;height:40px;border-radius:11px;background:#41ddff1a;color:var(--cyan)}.steps p{color:var(--muted);font-size:13px}footer{max-width:1110px;margin:auto;padding:32px 0 45px;border-top:1px solid #20263d;display:flex;align-items:center;justify-content:space-between}footer p{color:#767f99;font-size:12px}
-    .overlay{position:fixed;inset:0;z-index:50;background:#02040bc7;backdrop-filter:blur(7px);display:none}.overlay.show{display:flex}.drawer{width:min(430px,100%);height:100%;overflow:auto;padding:23px;background:#0d1221;border-left:1px solid #303650}.modal{width:min(800px,calc(100% - 24px));max-height:92vh;overflow:auto;margin:auto;padding:23px;border:1px solid #303650;border-radius:22px;background:#0d1221}.top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #272d44;padding-bottom:16px}.top h2{margin:0}.close,.trash{border:0;border-radius:10px;background:#171e32;color:white;width:38px;height:38px}.empty{text-align:center;padding:60px 10px;color:#7d86a0;font-size:16px}.cartItem,.manageItem{display:flex;align-items:center;gap:12px;padding:12px 0;border-bottom:1px solid #222940}.cartItem>span,.manageItem>span{font-size:27px}.cartItem div,.manageItem div{display:flex;flex:1;flex-direction:column;gap:5px}.cartItem small,.manageItem small{color:#8790aa}.total{display:flex;justify-content:space-between;padding:20px 0}.total b{color:var(--cyan)}input,select{width:100%;height:47px;margin-top:9px;padding:0 13px;background:#11182b;border:1px solid #2e3753;border-radius:10px;color:white;outline:none}.primary{width:100%;margin-top:13px;background:linear-gradient(100deg,var(--cyan),var(--violet))}.login{max-width:360px;text-align:center;margin:45px auto}.login .lock{font-size:52px}.login p,.login small{color:var(--muted)}.tabs{display:flex;gap:8px;margin:20px 0}.tabs button{border:0;border-radius:10px;padding:11px 14px;background:#151c30;color:#aab1c7}.tabs button.active{color:var(--cyan);background:#41ddff1a}.adminBody h3{margin-top:27px}.form{display:grid;grid-template-columns:1fr 1fr;gap:9px}.orders{display:grid;gap:10px}.order{padding:15px;border:1px solid #29314b;border-radius:12px;background:#12182b}.order div{display:flex;justify-content:space-between}.order div span{color:#42e19e;font-size:11px}.order p{margin:10px 0}.order small,.order time{display:block;color:#8790aa;margin-top:6px}.order strong{display:block;color:var(--cyan);margin-top:8px}
-    @media(max-width:760px){.nav{padding:0 11px}.links{display:none}.logo{font-size:15px}.adminBtn,.cartBtn{padding:9px}.hero{padding:55px 20px;grid-template-columns:1fr;text-align:center}.hero p{font-size:14px}.art{height:310px}.orb{width:260px;height:260px}.city{font-size:125px}.grid{grid-template-columns:1fr}.store{padding:65px 17px}.steps{margin:20px 17px 75px;padding:28px;grid-template-columns:1fr}footer{margin:0 17px;flex-direction:column;gap:18px}.form{grid-template-columns:1fr}.tabs{overflow:auto}}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>AMIR CITY NETWORK | STORE</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
+
+:root{
+ --bg:#090b13;
+ --panel:#14182a;
+ --purple:#9465ff;
+ --gold:#edc477;
+ --text:#fff;
+ --muted:#9ca3b7;
+ --line:#2b3047;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;background:var(--bg);color:var(--text);
+ font-family:Vazirmatn,Tahoma,sans-serif;
+}
+button,input{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+.hero{
+ min-height:440px;
+ padding:24px 18px 75px;
+ position:relative;overflow:hidden;text-align:center;
+ background:
+ radial-gradient(ellipse at 50% 0%,#57359e 0%,transparent 60%),
+ linear-gradient(135deg,#19152b,#0b1020 75%);
+ border-bottom:1px solid #49366d;
+}
+.hero:before{
+ content:"";position:absolute;inset:0;opacity:.09;
+ background-image:
+ linear-gradient(#fff 1px,transparent 1px),
+ linear-gradient(90deg,#fff 1px,transparent 1px);
+ background-size:38px 38px;
+}
+.topbar{
+ position:relative;z-index:2;max-width:1150px;
+ margin:auto;display:flex;justify-content:space-between;
+ align-items:center;gap:10px;
+}
+.logo{font-size:18px;font-weight:900}
+.logo span{color:var(--gold)}
+.status{
+ background:#10271d;color:#75e6a0;
+ border:1px solid #2e6848;padding:7px 13px;
+ border-radius:30px;font-size:11px;
+}
+.hero-content{position:relative;z-index:1;margin-top:75px}
+.eyebrow{font-size:11px;letter-spacing:2px;color:var(--gold)}
+.hero h1{
+ font-size:clamp(35px,8vw,70px);
+ font-weight:900;margin:12px 0;
+ text-shadow:0 0 35px #8954ff66;
+}
+.hero h1 span{
+ color:transparent;
+ -webkit-text-stroke:1px #c3a4ff;
+}
+.hero p{color:#c4c5d5;font-size:14px}
+.hero-buttons{
+ display:flex;justify-content:center;
+ gap:12px;flex-wrap:wrap;margin-top:25px
+}
+.btn{
+ border:0;border-radius:10px;padding:12px 22px;
+ font-weight:800
+}
+.primary{
+ color:white;background:linear-gradient(110deg,#a178ff,#6841c0);
+}
+.secondary{
+ color:white;background:#22273c;border:1px solid #484d68
+}
+
+.stats{
+ max-width:850px;margin:-30px auto 0;
+ position:relative;z-index:2;padding:0 15px;
+ display:grid;grid-template-columns:repeat(3,1fr);gap:12px
+}
+.stat{
+ background:#161b2d;border:1px solid var(--line);
+ border-radius:14px;text-align:center;padding:17px 5px
+}
+.stat strong{display:block;color:var(--gold);font-size:20px}
+.stat small{color:var(--muted);font-size:11px}
+
+.container{max-width:1150px;margin:45px auto;padding:0 18px}
+.section-head{
+ display:flex;justify-content:space-between;
+ align-items:center;gap:12px;flex-wrap:wrap;
+ margin-bottom:22px
+}
+.section-head h2{font-size:22px;margin:0}
+.section-head p{font-size:12px;color:var(--muted)}
+
+.servers{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+ gap:15px
+}
+.server-card{
+ position:relative;overflow:hidden;
+ background:linear-gradient(145deg,#1b2035,#101525);
+ border:1px solid var(--line);border-radius:16px;
+ padding:23px 17px;text-align:center;transition:.25s
+}
+.server-card:hover{transform:translateY(-5px)}
+.server-card.green{border-top:3px solid #22c55e}
+.server-card.blue{border-top:3px solid #3b82f6}
+.server-card.purple{border-top:3px solid #a855f7}
+.server-icon{font-size:38px}
+.server-card h3{font-size:15px;margin:9px 0}
+.server-ip{
+ direction:ltr;overflow-wrap:anywhere;
+ color:#c9cce0;font-size:13px;margin:17px 0
+}
+.copy{
+ width:100%;padding:11px;border:0;border-radius:9px;
+ background:#292e47;color:white;font-weight:800;
+ transition:.2s
+}
+.green .copy:hover{background:#168a49}
+.blue .copy:hover{background:#2563bd}
+.purple .copy:hover{background:#8142c7}
+
+.categories{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:12px;margin-bottom:24px
+}
+.category{
+ background:linear-gradient(145deg,#191e33,#111525);
+ color:white;border:1px solid var(--line);
+ border-radius:14px;padding:18px 8px;transition:.2s
+}
+.category:hover,.category.active{
+ border-color:var(--purple);
+ background:linear-gradient(145deg,#2a2045,#18182c);
+ transform:translateY(-3px)
+}
+.category .symbol{display:block;font-size:32px;margin-bottom:7px}
+.category small{display:block;color:var(--muted);margin-top:4px;font-size:10px}
+
+.search{
+ width:100%;padding:14px 16px;
+ background:#151a2b;border:1px solid var(--line);
+ color:white;border-radius:10px;outline:none;
+ margin-bottom:20px
+}
+.search:focus{border-color:var(--purple)}
+
+.products{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));
+ gap:17px
+}
+.product{
+ overflow:hidden;background:linear-gradient(145deg,#1a2034,#101423);
+ border:1px solid var(--line);border-radius:15px;
+ transition:.25s
+}
+.product:hover{transform:translateY(-5px);border-color:#8865d5}
+.product-image{
+ height:180px;background:#20253b;
+ display:flex;justify-content:center;align-items:center;
+ position:relative;overflow:hidden
+}
+.product-image img{width:100%;height:100%;object-fit:contain}
+.product-image .fallback{font-size:65px}
+.tag{
+ position:absolute;top:12px;right:12px;
+ background:#33264f;color:#e1d1ff;
+ border-radius:30px;padding:5px 10px;font-size:10px
+}
+.product-info{padding:15px}
+.product-info h3{font-size:15px;margin:0 0 7px}
+.product-info p{font-size:11px;color:var(--muted);min-height:34px}
+.price-row{display:flex;justify-content:space-between;align-items:center}
+.price{color:var(--gold);font-weight:900}
+.buy{
+ width:100%;padding:12px;margin-top:14px;
+ border:0;border-radius:9px;color:white;font-weight:800;
+ background:linear-gradient(110deg,#9768f5,#6540bb)
+}
+.buy:hover{filter:brightness(1.2)}
+.empty{text-align:center;color:var(--muted);padding:35px;display:none}
+
+.contact{
+ max-width:900px;margin:55px auto;padding:30px 20px;
+ text-align:center;border:1px solid #443368;
+ border-radius:18px;
+ background:radial-gradient(ellipse at top,#332252,#15192a 75%);
+}
+.contact h2{font-size:24px}
+.contact p{font-size:13px;color:#c0c3d2;line-height:2.2}
+.phone{font-size:25px;color:var(--gold);font-weight:900}
+.contact a{display:inline-block;margin-top:15px}
+
+footer{
+ border-top:1px solid var(--line);
+ padding:25px;text-align:center;color:var(--muted);font-size:12px
+}
+.toast{
+ position:fixed;bottom:20px;left:15px;right:15px;
+ max-width:400px;margin:auto;padding:13px;
+ border-radius:12px;background:#292044;
+ border:1px solid #7654bd;text-align:center;
+ display:none;z-index:10
+}
+@media(max-width:550px){
+ .stats{gap:6px}
+ .stat{padding:12px 3px}
+ .stat strong{font-size:15px}
+ .stat small{font-size:9px}
+ .categories{gap:7px}
+ .category{font-size:12px;padding:14px 4px}
+ .hero-content{margin-top:60px}
+}
+</style>
 </head>
+
 <body>
-  <header><div class="nav"><a class="logo" href="#"><i>🎮</i>AMIR CITY</a><div class="links"><a href="#packages">پکیج‌ها</a><a href="#guide">راهنما</a><button onclick="openAdmin()">پنل مدیریت</button></div><div class="actions"><button class="adminBtn" onclick="openAdmin()">⚙ مدیریت</button><button class="cartBtn" onclick="openCart()">🛒 سبد <b id="cartCount">۰</b></button></div></div></header>
-  <main>
-    <section class="hero"><div><span class="tag">فروشگاه رسمی پکیج‌های شهر</span><h1>شهر رویایی‌ات را<br><span>خودت بساز!</span></h1><p>بهترین خانه‌ها و استخرهای خاص را انتخاب کن و شهر خودت را حرفه‌ای‌تر بساز.</p><a class="cta" href="#packages">دیدن پکیج‌ها</a></div><div class="art"><div class="orb"></div><div class="city">🏙️</div><span class="float f1">HOUSE</span><span class="float f2">POOL</span></div></section>
-    <section class="store" id="packages"><div class="head"><small>فروشگاه شهر</small><h2>پکیج مورد علاقه‌ات رو بردار</h2><p>خانه‌های خاص و استخرهای حرفه‌ای برای ساخت بهترین شهر</p></div><h3 class="category">🏠 پکیج خانه</h3><div class="grid" id="houses"></div><h3 class="category">🌊 پکیج استخر</h3><div class="grid" id="pools"></div></section>
-    <section class="steps" id="guide"><div><b>۱</b><h3>پکیج را انتخاب کن</h3><p>محصول دلخواهت را به سبد اضافه کن.</p></div><div><b>۲</b><h3>سفارش را ثبت کن</h3><p>نام و شماره تماس را بنویس.</p></div><div><b>۳</b><h3>منتظر هماهنگی باش</h3><p>پشتیبانی برای تحویل با تو تماس می‌گیرد.</p></div></section>
-  </main>
-  <footer><a class="logo" href="#"><i>🎮</i>AMIR CITY</a><p>فروشگاه پکیج‌های گیمینگ شهر امیر</p></footer>
 
-  <div class="overlay" id="cartOverlay" onclick="if(event.target===this)closeAll()"><aside class="drawer"><div class="top"><h2>سبد خرید</h2><button class="close" onclick="closeAll()">✕</button></div><div id="cartList"></div><div id="checkout"></div></aside></div>
-  <div class="overlay" id="adminOverlay" onclick="if(event.target===this)closeAll()"><section class="modal"><div class="top"><div><small style="color:var(--cyan)">AMIR CITY</small><h2>پنل مدیریت</h2></div><button class="close" onclick="closeAll()">✕</button></div><div id="adminContent"></div></section></div>
+<header class="hero">
+ <div class="topbar">
+  <div class="logo">⚔ AMIR <span>CITY</span></div>
+  <div class="status">● NETWORK ONLINE</div>
+ </div>
 
-  <script>
-    const seed=[
-      {id:1,name:"خانه مدرن",kind:"خانه",price:2850,desc:"خانه شیک با طراحی مدرن و فضای کامل"},
-      {id:2,name:"ویلای ساحلی",kind:"خانه",price:4200,desc:"ویلای لوکس نزدیک ساحل با منظره ویژه"},
-      {id:3,name:"پنت‌هاوس سیتی",kind:"خانه",price:5900,desc:"پنت‌هاوس بزرگ در بهترین نقطه شهر"},
-      {id:4,name:"استخر آبی",kind:"استخر",price:3650,desc:"استخر جذاب برای خانه‌های مدرن"},
-      {id:5,name:"استخر نئون",kind:"استخر",price:4400,desc:"استخر نورپردازی‌شده با ظاهر گیمینگ"},
-      {id:6,name:"استخر رویال",kind:"استخر",price:6800,desc:"بزرگ‌ترین پکیج استخر با امکانات کامل"}
-    ];
-    let products=JSON.parse(localStorage.getItem("amir_products")||"null")||seed;
-    let orders=JSON.parse(localStorage.getItem("amir_orders")||"[]"),cart=[];
-    const fa=n=>Number(n).toLocaleString("fa-IR")+" باکس",icon=k=>k==="خانه"?"🏠":"🌊";
-    const save=()=>{localStorage.setItem("amir_products",JSON.stringify(products));localStorage.setItem("amir_orders",JSON.stringify(orders))};
-    function render(){
-      const card=p=>`<article class="product"><div class="visual ${p.kind==="استخر"?"pool":""}"><small>${p.kind==="خانه"?"HOUSE":"POOL"}</small>${icon(p.kind)}</div><div class="info"><small>پکیج ${p.kind}</small><h3>${p.name}</h3><p>${p.desc}</p><div class="buyrow"><b>${fa(p.price)}</b><button onclick="addCart(${p.id})">🛒 خرید</button></div></div></article>`;
-      houses.innerHTML=products.filter(x=>x.kind==="خانه").map(card).join("");pools.innerHTML=products.filter(x=>x.kind==="استخر").map(card).join("");cartCount.textContent=cart.length.toLocaleString("fa-IR");
-    }
-    function addCart(id){cart.push(products.find(x=>x.id===id));render();openCart()}
-    function openCart(){
-      cartOverlay.classList.add("show");
-      if(!cart.length){cartList.innerHTML='<div class="empty">🛒<h3>سبد خرید خالیه</h3><p>یک پکیج خفن انتخاب کن.</p></div>';checkout.innerHTML="";return}
-      cartList.innerHTML=cart.map((p,i)=>`<div class="cartItem"><span>${icon(p.kind)}</span><div><b>${p.name}</b><small>${fa(p.price)}</small></div><button class="trash" onclick="removeCart(${i})">🗑</button></div>`).join("");
-      const total=cart.reduce((a,b)=>a+b.price,0);checkout.innerHTML=`<div class="total"><span>جمع کل</span><b>${fa(total)}</b></div><input id="customer" placeholder="نام شما"><input id="phone" placeholder="شماره تماس"><button class="primary" onclick="submitOrder()">ثبت سفارش</button>`;
-    }
-    function removeCart(i){cart.splice(i,1);render();openCart()}
-    function submitOrder(){const n=customer.value.trim(),p=phone.value.trim();if(!n||!p)return alert("نام و شماره را کامل کن");orders.unshift({id:Date.now(),name:n,phone:p,items:[...cart],total:cart.reduce((a,b)=>a+b.price,0),date:new Date().toLocaleString("fa-IR"),status:"جدید"});cart=[];save();render();openCart();alert("سفارش ثبت شد")}
-    function openAdmin(){adminOverlay.classList.add("show");adminContent.innerHTML=`<div class="login"><div class="lock">🔐</div><h3>ورود مدیر</h3><p>رمز مدیریت را وارد کن</p><input id="pin" type="password" placeholder="رمز عبور" onkeydown="if(event.key==='Enter')login()"><button class="primary" onclick="login()">ورود به پنل</button><small>رمز اولیه: ۲۴۶۸</small></div>`}
-    function login(){if(pin.value!=="2468")return alert("رمز اشتباه است");adminPanel("products")}
-    function adminPanel(tab){
-      adminContent.innerHTML=`<div class="tabs"><button class="${tab==="products"?"active":""}" onclick="adminPanel('products')">➕ محصولات</button><button class="${tab==="orders"?"active":""}" onclick="adminPanel('orders')">🛒 سفارش‌ها (${orders.length})</button><button onclick="closeAll()">خروج</button></div><div class="adminBody" id="adminBody"></div>`;
-      if(tab==="products")adminBody.innerHTML=`<h3>افزودن پکیج جدید</h3><div class="form"><input id="pname" placeholder="نام پکیج"><select id="pkind"><option>خانه</option><option>استخر</option></select><input id="pprice" type="number" placeholder="قیمت به باکس"><input id="pdesc" placeholder="توضیحات کوتاه"></div><button class="primary" onclick="addProduct()">افزودن به فروشگاه</button><h3>لیست محصولات</h3><div>${products.map(p=>`<div class="manageItem"><span>${icon(p.kind)}</span><div><b>${p.name}</b><small>${p.kind} • ${fa(p.price)}</small></div><button class="trash" onclick="deleteProduct(${p.id})">🗑</button></div>`).join("")}</div>`;
-      else adminBody.innerHTML=orders.length?`<div class="orders">${orders.map(o=>`<article class="order"><div><b>سفارش #${String(o.id).slice(-5)}</b><span>${o.status}</span></div><p>${o.name} — ${o.phone}</p><small>${o.items.map(i=>i.name).join("، ")}</small><strong>${fa(o.total)}</strong><time>${o.date}</time></article>`).join("")}</div>`:'<div class="empty">هنوز سفارشی ثبت نشده.</div>';
-    }
-    function addProduct(){const price=Number(pprice.value);if(!pname.value||!price||!pdesc.value)return alert("همه مشخصات را کامل کن");if(pkind.value==="استخر"&&price<=3600)return alert("قیمت استخر باید بیشتر از ۳۶۰۰ باکس باشد");products.push({id:Date.now(),name:pname.value,kind:pkind.value,price,desc:pdesc.value});save();render();adminPanel("products")}
-    function deleteProduct(id){products=products.filter(x=>x.id!==id);save();render();adminPanel("products")}
-    function closeAll(){cartOverlay.classList.remove("show");adminOverlay.classList.remove("show")}
-    render();
-  </script>
+ <div class="hero-content">
+  <div class="eyebrow">✦ WELCOME TO AMIR CITY ✦</div>
+  <h1>AMIR <span>CITY</span></h1>
+  <p>👑 دنیای خودت رو بساز، افسانه خودت باش!</p>
+  <div class="hero-buttons">
+   <button class="btn primary" onclick="goShop()">💎 فروشگاه</button>
+   <button class="btn secondary" onclick="goServers()">🌐 آدرس سرورها</button>
+  </div>
+ </div>
+</header>
+
+<div class="stats">
+ <div class="stat"><strong>1,200+</strong><small>بازیکن آنلاین</small></div>
+ <div class="stat"><strong>24/7</strong><small>فعالیت شبکه</small></div>
+ <div class="stat"><strong>PREMIUM</strong><small>تجربه بازی</small></div>
+</div>
+
+<main class="container">
+
+<section id="servers">
+ <div class="section-head">
+  <div>
+   <h2>🌐 شبکه سرورهای امیر سیتی</h2>
+   <p>آدرس موردنظرت رو کپی کن و وارد دنیای بازی شو!</p>
+  </div>
+  <span class="eyebrow">SERVER NETWORK</span>
+ </div>
+
+ <div class="servers">
+  <div class="server-card green">
+   <div class="server-icon">🟢</div>
+   <h3>AMIR CITY</h3>
+   <div class="server-ip">Amir_City.aternos.me</div>
+   <button class="copy" onclick="copyServer('Amir_City.aternos.me')">📋 کپی آدرس</button>
+  </div>
+
+  <div class="server-card blue">
+   <div class="server-icon">🔵</div>
+   <h3>AMIR CITY NETWORK</h3>
+   <div class="server-ip">AmirCity.exaroton.me</div>
+   <button class="copy" onclick="copyServer('AmirCity.exaroton.me')">📋 کپی آدرس</button>
+  </div>
+
+  <div class="server-card purple">
+   <div class="server-icon">🟣</div>
+   <h3>AMIR CITY SPECIAL</h3>
+   <div class="server-ip">AmirCity-wBPC.aternos.me</div>
+   <button class="copy" onclick="copyServer('AmirCity-wBPC.aternos.me')">📋 کپی آدرس</button>
+  </div>
+ </div>
+</section>
+
+<section id="shop" style="margin-top:55px">
+ <div class="section-head">
+  <div>
+   <h2>💎 فروشگاه اختصاصی</h2>
+   <p>محصولات موردنظرت رو انتخاب و سفارش ثبت کن</p>
+  </div>
+  <span class="eyebrow">OFFICIAL STORE</span>
+ </div>
+
+ <div class="categories">
+  <button class="category active" onclick="setCategory('همه',this)">
+   <span class="symbol">💎</span>همه محصولات
+   <small>ALL ITEMS</small>
+  </button>
+  <button class="category" onclick="setCategory('عمومی',this)">
+   <span class="symbol">👑</span>عمومی
+   <small>GENERAL</small>
+  </button>
+  <button class="category" onclick="setCategory('رول پلی',this)">
+   <span class="symbol">🏙️</span>رول‌پلی
+   <small>ROLEPLAY</small>
+  </button>
+  <button class="category" onclick="setCategory('سروایول',this)">
+   <span class="symbol">⛏️</span>سروایول
+   <small>SURVIVAL</small>
+  </button>
+ </div>
+
+ <input class="search" id="search" placeholder="🔍 جستجوی محصول..." oninput="render()">
+
+ <div class="products" id="products"></div>
+ <div class="empty" id="empty">محصولی پیدا نشد! 💔</div>
+</section>
+
+<section class="contact">
+ <div class="eyebrow">✦ CUSTOMER SUPPORT ✦</div>
+ <h2>📩 ثبت سفارش و پشتیبانی</h2>
+ <p>
+ برای خرید، عکس محصول موردنظرت رو به آیدی اونر ارسال کن
+ یا برای ثبت سفارش مستقیم به شماره زیر پیام بده.
+ </p>
+ <div class="phone">09303332476</div>
+ <a class="btn primary" href="https://wa.me/989303332476">ارتباط با پشتیبانی ↗</a>
+</section>
+
+</main>
+
+<footer>
+ <strong>⚔ AMIR CITY NETWORK</strong>
+ <p>✦ ساخته شده برای بازیکنان حرفه‌ای ماینکرفت ✦</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+// محصولات
+// نام، قیمت، توضیحات و عکس محصولات را از این قسمت تغییر بده
+
+const products=[
+
+{name:"تغییر رنگ چت",cat:"عمومی",price:5000,icon:"💬",desc:"تغییر رنگ و ظاهر پیام‌های چت",img:"https://servers.gameup.ir/storage/cc0bd775-fb38-4647-9541-5418956674d6.webp"},
+
+{name:"تغییر اسم و رنگ",cat:"عمومی",price:14000,icon:"✨",desc:"اسم و رنگ نمایشی اختصاصی",img:"https://servers.gameup.ir/storage/617cc6c9-5902-47e3-b598-6184a175c5c2.webp"},
+
+{name:"دور زدن کول‌داون چت",cat:"عمومی",price:14000,icon:"⚡",desc:"آزادی بیشتر در ارسال پیام",img:"https://servers.gameup.ir/storage/ce0b311c-37b7-46da-8940-787167f78a60.webp"},
+
+{name:"دور زدن AFK",cat:"عمومی",price:14000,icon:"🛡️",desc:"امکانات ویژه AFK",img:"https://servers.gameup.ir/storage/b3878c4e-57e8-4dd8-889f-328404101f4f.webp"},
+
+{name:"منوی گلو",cat:"عمومی",price:7000,icon:"🌟",desc:"افکت‌های نمایشی جذاب",img:"https://servers.gameup.ir/storage/32bf7250-25a3-49cc-916d-419b7cd86da1.webp"},
+
+{name:"رنگ چت پیشرفته",cat:"عمومی",price:14000,icon:"🎨",desc:"ظاهر اختصاصی چت",img:"https://servers.gameup.ir/storage/ab4696c1-d042-4466-85e7-9ef02cee9ec7.webp"},
+
+{name:"کازمتیک ۱۱ دسته",cat:"عمومی",price:35000,icon:"💎",desc:"دسترسی به ۱۱ دسته کازمتیک",img:"https://servers.gameup.ir/storage/b2867503-c898-441d-9608-068b1181ad9a.webp"},
+
+{name:"کازمتیک ۷ دسته",cat:"عمومی",price:25000,icon:"👑",desc:"دسترسی به ۷ دسته کازمتیک",img:"https://servers.gameup.ir/storage/0ff03ddf-7572-4665-88b0-25308bea0b06.webp"},
+
+{name:"کازمتیک ۵ دسته",cat:"عمومی",price:15000,icon:"✨",desc:"دسترسی به ۵ دسته کازمتیک",img:"https://servers.gameup.ir/storage/20d809ad-cd3e-473c-bba0-e1919ba498e1.webp"},
+
+{name:"کازمتیک ۳ دسته",cat:"عمومی",price:8000,icon:"🎭",desc:"دسترسی به ۳ دسته کازمتیک",img:"https://servers.gameup.ir/storage/1ece3369-47d3-4f2e-9a57-516a21bdf3a6.webp"},
+
+// محصولات نمونه؛ با محصولات واقعی خودت جایگزین کن
+
+{name:"VIP رول‌پلی",cat:"رول پلی",price:50000,icon:"👑",desc:"امکانات ویژه رول‌پلی",img:""},
+
+{name:"ماشین اختصاصی",cat:"رول پلی",price:30000,icon:"🚘",desc:"وسیله نقلیه ویژه",img:""},
+
+{name:"خانه اختصاصی",cat:"رول پلی",price:40000,icon:"🏠",desc:"خانه شخصی در شهر",img:""},
+
+{name:"VIP سروایول",cat:"سروایول",price:50000,icon:"⚔️",desc:"امکانات ویژه بقا",img:""},
+
+{name:"کیت الماس",cat:"سروایول",price:20000,icon:"💎",desc:"تجهیزات شروع قدرتمند",img:""},
+
+{name:"زمین اختصاصی",cat:"سروایول",price:30000,icon:"🌳",desc:"زمین اختصاصی در سرور",img:""}
+
+];
+
+let selected="همه";
+
+function render(){
+
+ const q=document.getElementById("search").value.trim().toLowerCase();
+
+ const list=products.filter(p=>
+ (selected==="همه"||p.cat===selected)&&
+ p.name.toLowerCase().includes(q)
+ );
+
+ document.getElementById("products").innerHTML=list.map(p=>`
+ <article class="product">
+  <div class="product-image">
+   <span class="tag">${p.cat}</span>
+   ${p.img?`<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:""}
+   <span class="fallback" style="${p.img?"display:none":""}">${p.icon}</span>
+  </div>
+  <div class="product-info">
+   <h3>${p.icon} ${p.name}</h3>
+   <p>${p.desc}</p>
+   <div class="price-row">
+    <span class="price">${p.price.toLocaleString("fa-IR")} تومان</span>
+    <span>✦</span>
+   </div>
+   <button class="buy" onclick="order(${products.indexOf(p)})">ثبت سفارش ←</button>
+  </div>
+ </article>
+ `).join("");
+
+ document.getElementById("empty").style.display=list.length?"none":"block";
+}
+
+function setCategory(cat,button){
+ selected=cat;
+ document.querySelectorAll(".category").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
+ render();
+}
+
+function order(index){
+ const p=products[index];
+ const message=encodeURIComponent(
+ `سلام، برای خرید محصول ${p.name} به قیمت ${p.price.toLocaleString("fa-IR")} تومان پیام می‌دم.`
+ );
+ window.open("https://wa.me/989303332476?text="+message,"_blank");
+}
+
+async function copyServer(ip){
+ try{
+  await navigator.clipboard.writeText(ip);
+  showToast("✅ آدرس کپی شد: "+ip);
+ }catch(e){
+  showToast("آدرس سرور: "+ip);
+ }
+}
+
+function showToast(message){
+ const el=document.getElementById("toast");
+ el.textContent=message;
+ el.style.display="block";
+ clearTimeout(window.toastTimer);
+ window.toastTimer=setTimeout(()=>el.style.display="none",3000);
+}
+
+function goShop(){
+ document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+}
+function goServers(){
+ document.getElementById("servers").scrollIntoView({behavior:"smooth"});
+}
+
+render();
+
+</script>
 </body>
 </html>
