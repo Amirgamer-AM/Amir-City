@@ -3,7 +3,7 @@
 <html lang="fa" dir="rtl">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>AMIR CITY NETWORK | STORE</title>
 
 <style>
@@ -11,25 +11,23 @@
 
 :root{
  --bg:#090b13;
- --panel:#14182a;
+ --panel:#151a2d;
  --purple:#9465ff;
  --gold:#edc477;
- --text:#fff;
- --muted:#9ca3b7;
- --line:#2b3047;
+ --muted:#a0a5b8;
+ --line:#303650;
 }
 *{box-sizing:border-box}
 body{
- margin:0;background:var(--bg);color:var(--text);
- font-family:Vazirmatn,Tahoma,sans-serif;
+ margin:0;background:var(--bg);color:white;
+ font-family:Vazirmatn,Tahoma,sans-serif
 }
 button,input{font:inherit}
 button{cursor:pointer}
 a{text-decoration:none;color:inherit}
 
 .hero{
- min-height:440px;
- padding:24px 18px 75px;
+ min-height:420px;padding:24px 18px 75px;
  position:relative;overflow:hidden;text-align:center;
  background:
  radial-gradient(ellipse at 50% 0%,#57359e 0%,transparent 60%),
@@ -37,96 +35,86 @@ a{text-decoration:none;color:inherit}
  border-bottom:1px solid #49366d;
 }
 .hero:before{
- content:"";position:absolute;inset:0;opacity:.09;
- background-image:
- linear-gradient(#fff 1px,transparent 1px),
+ content:"";position:absolute;inset:0;opacity:.08;
+ background-image:linear-gradient(#fff 1px,transparent 1px),
  linear-gradient(90deg,#fff 1px,transparent 1px);
  background-size:38px 38px;
 }
 .topbar{
  position:relative;z-index:2;max-width:1150px;
  margin:auto;display:flex;justify-content:space-between;
- align-items:center;gap:10px;
+ align-items:center;gap:10px
 }
 .logo{font-size:18px;font-weight:900}
 .logo span{color:var(--gold)}
 .status{
  background:#10271d;color:#75e6a0;
  border:1px solid #2e6848;padding:7px 13px;
- border-radius:30px;font-size:11px;
+ border-radius:30px;font-size:11px
 }
-.hero-content{position:relative;z-index:1;margin-top:75px}
+.hero-content{position:relative;z-index:1;margin-top:70px}
 .eyebrow{font-size:11px;letter-spacing:2px;color:var(--gold)}
-.hero h1{
- font-size:clamp(35px,8vw,70px);
- font-weight:900;margin:12px 0;
- text-shadow:0 0 35px #8954ff66;
-}
-.hero h1 span{
- color:transparent;
- -webkit-text-stroke:1px #c3a4ff;
-}
+.hero h1{font-size:clamp(35px,8vw,68px);font-weight:900;margin:12px 0}
+.hero h1 span{color:transparent;-webkit-text-stroke:1px #c3a4ff}
 .hero p{color:#c4c5d5;font-size:14px}
 .hero-buttons{
- display:flex;justify-content:center;
- gap:12px;flex-wrap:wrap;margin-top:25px
+ display:flex;justify-content:center;gap:12px;
+ flex-wrap:wrap;margin-top:25px
 }
 .btn{
- border:0;border-radius:10px;padding:12px 22px;
- font-weight:800
+ border:0;border-radius:10px;padding:12px 22px;font-weight:800
 }
-.primary{
- color:white;background:linear-gradient(110deg,#a178ff,#6841c0);
+.primary{color:white;background:linear-gradient(110deg,#a178ff,#6841c0)}
+.secondary{color:white;background:#22273c;border:1px solid #484d68}
+.cart-button{
+ background:#211b36;color:white;border:1px solid #8760d3;
+ padding:9px 13px;border-radius:10px;font-weight:bold
 }
-.secondary{
- color:white;background:#22273c;border:1px solid #484d68
+.cart-count{
+ background:var(--gold);color:#191323;
+ border-radius:20px;padding:2px 7px;margin-right:4px
 }
-
 .stats{
- max-width:850px;margin:-30px auto 0;
- position:relative;z-index:2;padding:0 15px;
- display:grid;grid-template-columns:repeat(3,1fr);gap:12px
+ max-width:850px;margin:-30px auto 0;position:relative;
+ z-index:2;padding:0 15px;display:grid;
+ grid-template-columns:repeat(3,1fr);gap:12px
 }
 .stat{
  background:#161b2d;border:1px solid var(--line);
- border-radius:14px;text-align:center;padding:17px 5px
+ border-radius:14px;text-align:center;padding:16px 5px
 }
 .stat strong{display:block;color:var(--gold);font-size:20px}
 .stat small{color:var(--muted);font-size:11px}
 
 .container{max-width:1150px;margin:45px auto;padding:0 18px}
 .section-head{
- display:flex;justify-content:space-between;
- align-items:center;gap:12px;flex-wrap:wrap;
- margin-bottom:22px
+ display:flex;justify-content:space-between;align-items:center;
+ gap:12px;flex-wrap:wrap;margin-bottom:22px
 }
 .section-head h2{font-size:22px;margin:0}
 .section-head p{font-size:12px;color:var(--muted)}
-
 .servers{
  display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
  gap:15px
 }
 .server-card{
- position:relative;overflow:hidden;
  background:linear-gradient(145deg,#1b2035,#101525);
  border:1px solid var(--line);border-radius:16px;
- padding:23px 17px;text-align:center;transition:.25s
+ padding:22px 17px;text-align:center;transition:.25s
 }
 .server-card:hover{transform:translateY(-5px)}
 .server-card.green{border-top:3px solid #22c55e}
 .server-card.blue{border-top:3px solid #3b82f6}
 .server-card.purple{border-top:3px solid #a855f7}
 .server-icon{font-size:38px}
-.server-card h3{font-size:15px;margin:9px 0}
+.server-card h3{font-size:15px}
 .server-ip{
  direction:ltr;overflow-wrap:anywhere;
  color:#c9cce0;font-size:13px;margin:17px 0
 }
 .copy{
  width:100%;padding:11px;border:0;border-radius:9px;
- background:#292e47;color:white;font-weight:800;
- transition:.2s
+ background:#292e47;color:white;font-weight:800
 }
 .green .copy:hover{background:#168a49}
 .blue .copy:hover{background:#2563bd}
@@ -139,32 +127,27 @@ a{text-decoration:none;color:inherit}
 .category{
  background:linear-gradient(145deg,#191e33,#111525);
  color:white;border:1px solid var(--line);
- border-radius:14px;padding:18px 8px;transition:.2s
+ border-radius:14px;padding:17px 8px;transition:.2s
 }
 .category:hover,.category.active{
  border-color:var(--purple);
- background:linear-gradient(145deg,#2a2045,#18182c);
- transform:translateY(-3px)
+ background:linear-gradient(145deg,#2a2045,#18182c)
 }
-.category .symbol{display:block;font-size:32px;margin-bottom:7px}
+.category .symbol{display:block;font-size:31px;margin-bottom:7px}
 .category small{display:block;color:var(--muted);margin-top:4px;font-size:10px}
-
 .search{
- width:100%;padding:14px 16px;
- background:#151a2b;border:1px solid var(--line);
- color:white;border-radius:10px;outline:none;
- margin-bottom:20px
+ width:100%;padding:14px 16px;background:#151a2b;
+ border:1px solid var(--line);color:white;border-radius:10px;
+ outline:none;margin-bottom:20px
 }
 .search:focus{border-color:var(--purple)}
-
 .products{
  display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));
  gap:17px
 }
 .product{
  overflow:hidden;background:linear-gradient(145deg,#1a2034,#101423);
- border:1px solid var(--line);border-radius:15px;
- transition:.25s
+ border:1px solid var(--line);border-radius:15px;transition:.25s
 }
 .product:hover{transform:translateY(-5px);border-color:#8865d5}
 .product-image{
@@ -173,7 +156,7 @@ a{text-decoration:none;color:inherit}
  position:relative;overflow:hidden
 }
 .product-image img{width:100%;height:100%;object-fit:contain}
-.product-image .fallback{font-size:65px}
+.fallback{font-size:65px}
 .tag{
  position:absolute;top:12px;right:12px;
  background:#33264f;color:#e1d1ff;
@@ -185,24 +168,76 @@ a{text-decoration:none;color:inherit}
 .price-row{display:flex;justify-content:space-between;align-items:center}
 .price{color:var(--gold);font-weight:900}
 .buy{
- width:100%;padding:12px;margin-top:14px;
- border:0;border-radius:9px;color:white;font-weight:800;
+ width:100%;padding:12px;margin-top:14px;border:0;
+ border-radius:9px;color:white;font-weight:800;
  background:linear-gradient(110deg,#9768f5,#6540bb)
 }
 .buy:hover{filter:brightness(1.2)}
 .empty{text-align:center;color:var(--muted);padding:35px;display:none}
 
+/* سبد خرید */
+.overlay{
+ position:fixed;inset:0;background:#000b;z-index:50;
+ display:none;align-items:center;justify-content:center;padding:15px
+}
+.cart-box{
+ width:100%;max-width:530px;max-height:88vh;overflow:auto;
+ background:#171b2d;border:1px solid #59418c;
+ border-radius:18px;padding:22px;position:relative
+}
+.cart-header{
+ display:flex;justify-content:space-between;align-items:center;
+ border-bottom:1px solid var(--line);padding-bottom:12px
+}
+.cart-header h2{font-size:20px;margin:0}
+.close{
+ background:#333950;color:white;border:0;
+ width:35px;height:35px;border-radius:9px;font-size:18px
+}
+.cart-item{
+ display:flex;justify-content:space-between;align-items:center;
+ gap:10px;border-bottom:1px solid #343950;padding:13px 0
+}
+.cart-item strong{font-size:13px}
+.cart-item small{display:block;color:#c3a1ff;margin-top:5px}
+.item-actions{display:flex;align-items:center;gap:6px}
+.qty-btn{
+ background:#303650;color:white;border:0;
+ border-radius:7px;width:27px;height:27px
+}
+.remove{
+ background:#492633;color:white;border:0;
+ border-radius:7px;padding:7px
+}
+.cart-total{
+ display:flex;justify-content:space-between;
+ padding:18px 0;color:var(--gold);font-weight:bold
+}
+.cart-actions{display:flex;gap:10px}
+.cart-actions button{
+ flex:1;padding:12px;border:0;border-radius:9px;font-weight:bold
+}
+.confirm{background:#7953d1;color:white}
+.cancel{background:#343950;color:white}
+.empty-cart{text-align:center;color:var(--muted);padding:25px}
+.success-message{
+ display:none;text-align:center;padding:20px 5px
+}
+.success-icon{font-size:60px}
+.success-message h2{color:#79e6a0}
+.success-message p{color:#c0c3d2;font-size:13px;line-height:2}
+.success-message button{width:100%;margin-top:12px}
+.success-message .done-btn{background:#303650;color:white}
+
 .contact{
  max-width:900px;margin:55px auto;padding:30px 20px;
- text-align:center;border:1px solid #443368;
- border-radius:18px;
- background:radial-gradient(ellipse at top,#332252,#15192a 75%);
+ text-align:center;border:1px solid #443368;border-radius:18px;
+ background:radial-gradient(ellipse at top,#332252,#15192a 75%)
 }
 .contact h2{font-size:24px}
 .contact p{font-size:13px;color:#c0c3d2;line-height:2.2}
 .phone{font-size:25px;color:var(--gold);font-weight:900}
 .contact a{display:inline-block;margin-top:15px}
-
 footer{
  border-top:1px solid var(--line);
  padding:25px;text-align:center;color:var(--muted);font-size:12px
@@ -210,9 +245,8 @@ footer{
 .toast{
  position:fixed;bottom:20px;left:15px;right:15px;
  max-width:400px;margin:auto;padding:13px;
- border-radius:12px;background:#292044;
- border:1px solid #7654bd;text-align:center;
- display:none;z-index:10
+ border-radius:12px;background:#292044;border:1px solid #7654bd;
+ text-align:center;display:none;z-index:100
 }
 @media(max-width:550px){
  .stats{gap:6px}
@@ -221,7 +255,8 @@ footer{
  .stat small{font-size:9px}
  .categories{gap:7px}
  .category{font-size:12px;padding:14px 4px}
- .hero-content{margin-top:60px}
+ .hero-content{margin-top:55px}
+ .cart-item{align-items:flex-start}
 }
 </style>
 </head>
@@ -231,7 +266,9 @@ footer{
 <header class="hero">
  <div class="topbar">
   <div class="logo">⚔ AMIR <span>CITY</span></div>
-  <div class="status">● NETWORK ONLINE</div>
+  <button class="cart-button" onclick="openCart()">
+   🛒 سبد خرید <span class="cart-count" id="cartCount">۰</span>
+  </button>
  </div>
 
  <div class="hero-content">
@@ -269,14 +306,12 @@ footer{
    <div class="server-ip">Amir_City.aternos.me</div>
    <button class="copy" onclick="copyServer('Amir_City.aternos.me')">📋 کپی آدرس</button>
   </div>
-
   <div class="server-card blue">
    <div class="server-icon">🔵</div>
    <h3>AMIR CITY NETWORK</h3>
    <div class="server-ip">AmirCity.exaroton.me</div>
    <button class="copy" onclick="copyServer('AmirCity.exaroton.me')">📋 کپی آدرس</button>
   </div>
-
   <div class="server-card purple">
    <div class="server-icon">🟣</div>
    <h3>AMIR CITY SPECIAL</h3>
@@ -290,7 +325,7 @@ footer{
  <div class="section-head">
   <div>
    <h2>💎 فروشگاه اختصاصی</h2>
-   <p>محصولات موردنظرت رو انتخاب و سفارش ثبت کن</p>
+   <p>محصولات موردنظرت رو انتخاب کن و به سبد خرید اضافه کن</p>
   </div>
   <span class="eyebrow">OFFICIAL STORE</span>
  </div>
@@ -325,7 +360,7 @@ footer{
  <h2>📩 ثبت سفارش و پشتیبانی</h2>
  <p>
  برای خرید، عکس محصول موردنظرت رو به آیدی اونر ارسال کن
- یا برای ثبت سفارش مستقیم به شماره زیر پیام بده.
+ یا برای ثبت سفارش به شماره زیر پیام بده.
  </p>
  <div class="phone">09303332476</div>
  <a class="btn primary" href="https://wa.me/989303332476">ارتباط با پشتیبانی ↗</a>
@@ -338,13 +373,44 @@ footer{
  <p>✦ ساخته شده برای بازیکنان حرفه‌ای ماینکرفت ✦</p>
 </footer>
 
+<!-- پنجره سبد خرید -->
+<div class="overlay" id="cartOverlay" onclick="outsideClose(event)">
+ <div class="cart-box">
+  <div class="cart-header">
+   <h2>🛒 سبد خرید شما</h2>
+   <button class="close" onclick="closeCart()">×</button>
+  </div>
+
+  <div id="cartContent">
+   <div id="cartItems"></div>
+   <div class="cart-total">
+    <span>مبلغ کل:</span>
+    <span id="cartTotal">۰ تومان</span>
+   </div>
+   <div class="cart-actions">
+    <button class="confirm" onclick="submitOrder()">ثبت سفارش ✅</button>
+    <button class="cancel" onclick="closeCart()">بستن</button>
+   </div>
+  </div>
+
+  <div class="success-message" id="successMessage">
+   <div class="success-icon">✅</div>
+   <h2>سفارش شما ثبت شد!</h2>
+   <p>
+    سفارش شما آماده ارسال است.<br>
+    برای نهایی شدن، اطلاعات سفارش رو به واتساپ اونر ارسال کن.
+   </p>
+   <button class="buy" onclick="sendOrder()">📩 ارسال سفارش به اونر</button>
+   <button class="done-btn" onclick="finishOrder()">بستن و پایان</button>
+  </div>
+ </div>
+</div>
+
 <div class="toast" id="toast"></div>
 
 <script>
 
-// محصولات
-// نام، قیمت، توضیحات و عکس محصولات را از این قسمت تغییر بده
-
+// محصولات فروشگاه
 const products=[
 
 {name:"تغییر رنگ چت",cat:"عمومی",price:5000,icon:"💬",desc:"تغییر رنگ و ظاهر پیام‌های چت",img:"https://servers.gameup.ir/storage/cc0bd775-fb38-4647-9541-5418956674d6.webp"},
@@ -367,7 +433,7 @@ const products=[
 
 {name:"کازمتیک ۳ دسته",cat:"عمومی",price:8000,icon:"🎭",desc:"دسترسی به ۳ دسته کازمتیک",img:"https://servers.gameup.ir/storage/1ece3369-47d3-4f2e-9a57-516a21bdf3a6.webp"},
 
-// محصولات نمونه؛ با محصولات واقعی خودت جایگزین کن
+// این محصولات نمونه هستند؛ قیمت و نام واقعی خودت را وارد کن
 
 {name:"VIP رول‌پلی",cat:"رول پلی",price:50000,icon:"👑",desc:"امکانات ویژه رول‌پلی",img:""},
 
@@ -384,9 +450,10 @@ const products=[
 ];
 
 let selected="همه";
+let cart=[];
+let pendingMessage="";
 
 function render(){
-
  const q=document.getElementById("search").value.trim().toLowerCase();
 
  const list=products.filter(p=>
@@ -408,7 +475,9 @@ function render(){
     <span class="price">${p.price.toLocaleString("fa-IR")} تومان</span>
     <span>✦</span>
    </div>
-   <button class="buy" onclick="order(${products.indexOf(p)})">ثبت سفارش ←</button>
+   <button class="buy" onclick="addToCart(${products.indexOf(p)})">
+    🛒 افزودن به سبد خرید
+   </button>
   </div>
  </article>
  `).join("");
@@ -423,12 +492,111 @@ function setCategory(cat,button){
  render();
 }
 
-function order(index){
+// افزودن محصول
+function addToCart(index){
  const p=products[index];
- const message=encodeURIComponent(
- `سلام، برای خرید محصول ${p.name} به قیمت ${p.price.toLocaleString("fa-IR")} تومان پیام می‌دم.`
- );
- window.open("https://wa.me/989303332476?text="+message,"_blank");
+ const found=cart.find(x=>x.name===p.name);
+
+ if(found)found.qty++;
+ else cart.push({...p,qty:1});
+
+ updateCart();
+ showToast("✅ محصول به سبد خرید اضافه شد");
+}
+
+// به‌روزرسانی سبد خرید
+function updateCart(){
+ const count=cart.reduce((sum,p)=>sum+p.qty,0);
+ document.getElementById("cartCount").textContent=count.toLocaleString("fa-IR");
+
+ const box=document.getElementById("cartItems");
+
+ if(!cart.length){
+  box.innerHTML='<div class="empty-cart">🛒 سبد خرید شما خالی است.</div>';
+ }else{
+  box.innerHTML=cart.map((p,i)=>`
+   <div class="cart-item">
+    <div>
+     <strong>${p.icon} ${p.name}</strong>
+     <small>${p.price.toLocaleString("fa-IR")} تومان</small>
+    </div>
+    <div class="item-actions">
+     <button class="qty-btn" onclick="changeQty(${i},1)">+</button>
+     <span>${p.qty.toLocaleString("fa-IR")}</span>
+     <button class="qty-btn" onclick="changeQty(${i},-1)">−</button>
+     <button class="remove" onclick="removeItem(${i})">حذف</button>
+    </div>
+   </div>
+  `).join("");
+ }
+
+ const total=cart.reduce((sum,p)=>sum+p.price*p.qty,0);
+ document.getElementById("cartTotal").textContent=
+ total.toLocaleString("fa-IR")+" تومان";
+}
+
+function changeQty(index,amount){
+ cart[index].qty+=amount;
+ if(cart[index].qty<=0)cart.splice(index,1);
+ updateCart();
+}
+
+function removeItem(index){
+ cart.splice(index,1);
+ updateCart();
+ showToast("محصول از سبد حذف شد");
+}
+
+function openCart(){
+ updateCart();
+ document.getElementById("cartOverlay").style.display="flex";
+}
+
+function closeCart(){
+ document.getElementById("cartOverlay").style.display="none";
+}
+
+function outsideClose(event){
+ if(event.target.id==="cartOverlay")closeCart();
+}
+
+// ثبت سفارش و نمایش پیام موفقیت
+function submitOrder(){
+ if(!cart.length){
+  showToast("سبد خرید خالی است!");
+  return;
+ }
+
+ const total=cart.reduce((s,p)=>s+p.price*p.qty,0);
+
+ pendingMessage=
+ "سلام، سفارش جدید از فروشگاه AMIR CITY:\n\n"+
+ cart.map(p=>
+ p.name+" × "+p.qty+" = "+
+ (p.price*p.qty).toLocaleString("fa-IR")+" تومان"
+ ).join("\n")+
+ "\n\nمجموع: "+total.toLocaleString("fa-IR")+" تومان";
+
+ document.getElementById("cartContent").style.display="none";
+ document.getElementById("successMessage").style.display="block";
+}
+
+// ارسال سفارش به واتساپ
+function sendOrder(){
+ const url="https://wa.me/989303332476?text="+
+ encodeURIComponent(pendingMessage);
+ window.open(url,"_blank");
+}
+
+// پایان سفارش
+function finishOrder(){
+ cart=[];
+ pendingMessage="";
+ updateCart();
+ document.getElementById("cartContent").style.display="block";
+ document.getElementById("successMessage").style.display="none";
+ closeCart();
+ showToast("از خرید شما ممنونیم ❤️");
 }
 
 async function copyServer(ip){
@@ -456,6 +624,7 @@ function goServers(){
 }
 
 render();
+updateCart();
 
 </script>
 </body>
