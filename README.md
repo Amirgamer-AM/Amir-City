@@ -6,15 +6,15 @@
 ### دنیای خرید و سرگرمی ماینکرفتی!
 
 <a href="https://amirgamer-am.github.io/Amir-City/">
-  <img src="images/نام-فایل-عکس" alt="تبلیغات امیرسیتی" width="100%">
+  <img src="images/e7b5fdab-2124-4e31-bc8a-70c18892de5f.png" alt="بنر تبلیغاتی امیرسیتی" width="100%">
 </a>
 
 ## ⚡ خرید آسان | 🛡️ امن و مطمئن | 🎁 تجربه‌ای متفاوت
 
-### 🛒 همین حالا خرید کن
+### 👇 برای ورود به امیرسیتی روی بنر کلیک کن!
 
 <a href="https://amirgamer-am.github.io/Amir-City/">
-  ورود به سایت امیرسیتی
+  🛒 **همین حالا خرید کن**
 </a>
 
 </div>
