@@ -1,92 +1,631 @@
 
-<!-- Amir City: Roleplay Section -->
-<section id="amir-roleplay" dir="rtl">
-  <style>
-    #amir-roleplay {
-      padding: 35px 15px;
-      color: white;
-      font-family: Tahoma, Arial, sans-serif;
-    }
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AMIR CITY NETWORK | STORE</title>
 
-    #amir-roleplay h2 {
-      text-align: center;
-      color: #d58aff;
-      margin-bottom: 25px;
-      font-size: 27px;
-      text-shadow: 0 0 12px #9400ff;
-    }
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@400;500;600;700;800;900&display=swap');
 
-    #amir-roleplay .rp-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(210px,1fr));
-      gap: 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
+:root{
+ --bg:#090b13;
+ --panel:#151a2d;
+ --purple:#9465ff;
+ --gold:#edc477;
+ --muted:#a0a5b8;
+ --line:#303650;
+}
+*{box-sizing:border-box}
+body{
+ margin:0;background:var(--bg);color:white;
+ font-family:Vazirmatn,Tahoma,sans-serif
+}
+button,input{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
 
-    #amir-roleplay .rp-card {
-      background: #171020;
-      border: 1px solid #8c25bd;
-      border-radius: 15px;
-      overflow: hidden;
-      box-shadow: 0 0 12px #570080;
-    }
+.hero{
+ min-height:420px;padding:24px 18px 75px;
+ position:relative;overflow:hidden;text-align:center;
+ background:
+ radial-gradient(ellipse at 50% 0%,#57359e 0%,transparent 60%),
+ linear-gradient(135deg,#19152b,#0b1020 75%);
+ border-bottom:1px solid #49366d;
+}
+.hero:before{
+ content:"";position:absolute;inset:0;opacity:.08;
+ background-image:linear-gradient(#fff 1px,transparent 1px),
+ linear-gradient(90deg,#fff 1px,transparent 1px);
+ background-size:38px 38px;
+}
+.topbar{
+ position:relative;z-index:2;max-width:1150px;
+ margin:auto;display:flex;justify-content:space-between;
+ align-items:center;gap:10px
+}
+.logo{font-size:18px;font-weight:900}
+.logo span{color:var(--gold)}
+.status{
+ background:#10271d;color:#75e6a0;
+ border:1px solid #2e6848;padding:7px 13px;
+ border-radius:30px;font-size:11px
+}
+.hero-content{position:relative;z-index:1;margin-top:70px}
+.eyebrow{font-size:11px;letter-spacing:2px;color:var(--gold)}
+.hero h1{font-size:clamp(35px,8vw,68px);font-weight:900;margin:12px 0}
+.hero h1 span{color:transparent;-webkit-text-stroke:1px #c3a4ff}
+.hero p{color:#c4c5d5;font-size:14px}
+.hero-buttons{
+ display:flex;justify-content:center;gap:12px;
+ flex-wrap:wrap;margin-top:25px
+}
+.btn{
+ border:0;border-radius:10px;padding:12px 22px;font-weight:800
+}
+.primary{color:white;background:linear-gradient(110deg,#a178ff,#6841c0)}
+.secondary{color:white;background:#22273c;border:1px solid #484d68}
+.cart-button{
+ background:#211b36;color:white;border:1px solid #8760d3;
+ padding:9px 13px;border-radius:10px;font-weight:bold
+}
+.cart-count{
+ background:var(--gold);color:#191323;
+ border-radius:20px;padding:2px 7px;margin-right:4px
+}
+.stats{
+ max-width:850px;margin:-30px auto 0;position:relative;
+ z-index:2;padding:0 15px;display:grid;
+ grid-template-columns:repeat(3,1fr);gap:12px
+}
+.stat{
+ background:#161b2d;border:1px solid var(--line);
+ border-radius:14px;text-align:center;padding:16px 5px
+}
+.stat strong{display:block;color:var(--gold);font-size:20px}
+.stat small{color:var(--muted);font-size:11px}
 
-    #amir-roleplay .rp-card img {
-      display: block;
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-    }
+.container{max-width:1150px;margin:45px auto;padding:0 18px}
+.section-head{
+ display:flex;justify-content:space-between;align-items:center;
+ gap:12px;flex-wrap:wrap;margin-bottom:22px
+}
+.section-head h2{font-size:22px;margin:0}
+.section-head p{font-size:12px;color:var(--muted)}
+.servers{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+ gap:15px
+}
+.server-card{
+ background:linear-gradient(145deg,#1b2035,#101525);
+ border:1px solid var(--line);border-radius:16px;
+ padding:22px 17px;text-align:center;transition:.25s
+}
+.server-card:hover{transform:translateY(-5px)}
+.server-card.green{border-top:3px solid #22c55e}
+.server-card.blue{border-top:3px solid #3b82f6}
+.server-card.purple{border-top:3px solid #a855f7}
+.server-icon{font-size:38px}
+.server-card h3{font-size:15px}
+.server-ip{
+ direction:ltr;overflow-wrap:anywhere;
+ color:#c9cce0;font-size:13px;margin:17px 0
+}
+.copy{
+ width:100%;padding:11px;border:0;border-radius:9px;
+ background:#292e47;color:white;font-weight:800
+}
+.green .copy:hover{background:#168a49}
+.blue .copy:hover{background:#2563bd}
+.purple .copy:hover{background:#8142c7}
 
-    #amir-roleplay .rp-card div {
-      padding: 15px;
-    }
+.categories{
+ display:grid;grid-template-columns:repeat(3,1fr);
+ gap:12px;margin-bottom:24px
+}
+.category{
+ background:linear-gradient(145deg,#191e33,#111525);
+ color:white;border:1px solid var(--line);
+ border-radius:14px;padding:17px 8px;transition:.2s
+}
+.category:hover,.category.active{
+ border-color:var(--purple);
+ background:linear-gradient(145deg,#2a2045,#18182c)
+}
+.category .symbol{display:block;font-size:31px;margin-bottom:7px}
+.category small{display:block;color:var(--muted);margin-top:4px;font-size:10px}
+.search{
+ width:100%;padding:14px 16px;background:#151a2b;
+ border:1px solid var(--line);color:white;border-radius:10px;
+ outline:none;margin-bottom:20px
+}
+.search:focus{border-color:var(--purple)}
+.products{
+ display:grid;grid-template-columns:repeat(auto-fit,minmax(225px,1fr));
+ gap:17px
+}
+.product{
+ overflow:hidden;background:linear-gradient(145deg,#1a2034,#101423);
+ border:1px solid var(--line);border-radius:15px;transition:.25s
+}
+.product:hover{transform:translateY(-5px);border-color:#8865d5}
+.product-image{
+ height:180px;background:#20253b;
+ display:flex;justify-content:center;align-items:center;
+ position:relative;overflow:hidden
+}
+.product-image img{width:100%;height:100%;object-fit:contain}
+.fallback{font-size:65px}
+.tag{
+ position:absolute;top:12px;right:12px;
+ background:#33264f;color:#e1d1ff;
+ border-radius:30px;padding:5px 10px;font-size:10px
+}
+.product-info{padding:15px}
+.product-info h3{font-size:15px;margin:0 0 7px}
+.product-info p{font-size:11px;color:var(--muted);min-height:34px}
+.price-row{display:flex;justify-content:space-between;align-items:center}
+.price{color:var(--gold);font-weight:900}
+.buy{
+ width:100%;padding:12px;margin-top:14px;border:0;
+ border-radius:9px;color:white;font-weight:800;
+ background:linear-gradient(110deg,#9768f5,#6540bb)
+}
+.buy:hover{filter:brightness(1.2)}
+.empty{text-align:center;color:var(--muted);padding:35px;display:none}
 
-    #amir-roleplay h3 {
-      color: #d58aff;
-      margin-bottom: 10px;
-    }
+/* سبد خرید */
+.overlay{
+ position:fixed;inset:0;background:#000b;z-index:50;
+ display:none;align-items:center;justify-content:center;padding:15px
+}
+.cart-box{
+ width:100%;max-width:530px;max-height:88vh;overflow:auto;
+ background:#171b2d;border:1px solid #59418c;
+ border-radius:18px;padding:22px;position:relative
+}
+.cart-header{
+ display:flex;justify-content:space-between;align-items:center;
+ border-bottom:1px solid var(--line);padding-bottom:12px
+}
+.cart-header h2{font-size:20px;margin:0}
+.close{
+ background:#333950;color:white;border:0;
+ width:35px;height:35px;border-radius:9px;font-size:18px
+}
+.cart-item{
+ display:flex;justify-content:space-between;align-items:center;
+ gap:10px;border-bottom:1px solid #343950;padding:13px 0
+}
+.cart-item strong{font-size:13px}
+.cart-item small{display:block;color:#c3a1ff;margin-top:5px}
+.item-actions{display:flex;align-items:center;gap:6px}
+.qty-btn{
+ background:#303650;color:white;border:0;
+ border-radius:7px;width:27px;height:27px
+}
+.remove{
+ background:#492633;color:white;border:0;
+ border-radius:7px;padding:7px
+}
+.cart-total{
+ display:flex;justify-content:space-between;
+ padding:18px 0;color:var(--gold);font-weight:bold
+}
+.cart-actions{display:flex;gap:10px}
+.cart-actions button{
+ flex:1;padding:12px;border:0;border-radius:9px;font-weight:bold
+}
+.confirm{background:#7953d1;color:white}
+.cancel{background:#343950;color:white}
+.empty-cart{text-align:center;color:var(--muted);padding:25px}
+.success-message{
+ display:none;text-align:center;padding:20px 5px
+}
+.success-icon{font-size:60px}
+.success-message h2{color:#79e6a0}
+.success-message p{color:#c0c3d2;font-size:13px;line-height:2}
+.success-message button{width:100%;margin-top:12px}
+.success-message .done-btn{background:#303650;color:white}
 
-    #amir-roleplay p {
-      color: #ddd;
-      line-height: 1.8;
-      font-size: 14px;
-    }
-  </style>
+.contact{
+ max-width:900px;margin:55px auto;padding:30px 20px;
+ text-align:center;border:1px solid #443368;border-radius:18px;
+ background:radial-gradient(ellipse at top,#332252,#15192a 75%)
+}
+.contact h2{font-size:24px}
+.contact p{font-size:13px;color:#c0c3d2;line-height:2.2}
+.phone{font-size:25px;color:var(--gold);font-weight:900}
+.contact a{display:inline-block;margin-top:15px}
+footer{
+ border-top:1px solid var(--line);
+ padding:25px;text-align:center;color:var(--muted);font-size:12px
+}
+.toast{
+ position:fixed;bottom:20px;left:15px;right:15px;
+ max-width:400px;margin:auto;padding:13px;
+ border-radius:12px;background:#292044;border:1px solid #7654bd;
+ text-align:center;display:none;z-index:100
+}
+@media(max-width:550px){
+ .stats{gap:6px}
+ .stat{padding:12px 3px}
+ .stat strong{font-size:15px}
+ .stat small{font-size:9px}
+ .categories{gap:7px}
+ .category{font-size:12px;padding:14px 4px}
+ .hero-content{margin-top:55px}
+ .cart-item{align-items:flex-start}
+}
+</style>
+</head>
 
-  <h2>🏙️ دنیای رول‌پلی Amir City</h2>
+<body>
 
-  <div class="rp-grid">
+<header class="hero">
+ <div class="topbar">
+  <div class="logo">⚔ AMIR <span>CITY</span></div>
+  <button class="cart-button" onclick="openCart()">
+   🛒 سبد خرید <span class="cart-count" id="cartCount">۰</span>
+  </button>
+ </div>
 
-    <article class="rp-card">
-      <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=700"
-           alt="زندگی شهری">
-      <div>
-        <h3>City Roleplay</h3>
-        <p>زندگی در شهر، انتخاب شغل و ساخت داستان مخصوص خودت.</p>
-      </div>
-    </article>
-
-    <article class="rp-card">
-      <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=700"
-           alt="بازی و نقش آفرینی">
-      <div>
-        <h3>Gaming Roleplay</h3>
-        <p>تجربه نقش‌های مختلف و ماجراجویی در دنیای بازی‌ها.</p>
-      </div>
-    </article>
-
-    <article class="rp-card">
-      <img src="https://images.unsplash.com/photo-1518709268805-4e9042af9f23?w=700"
-           alt="ماجراجویی">
-      <div>
-        <h3>Adventure Roleplay</h3>
-        <p>کشف مکان‌های تازه و تجربه ماجراجویی‌های جذاب.</p>
-      </div>
-    </article>
-
+ <div class="hero-content">
+  <div class="eyebrow">✦ WELCOME TO AMIR CITY ✦</div>
+  <h1>AMIR <span>CITY</span></h1>
+  <p>👑 دنیای خودت رو بساز، افسانه خودت باش!</p>
+  <div class="hero-buttons">
+   <button class="btn primary" onclick="goShop()">💎 فروشگاه</button>
+   <button class="btn secondary" onclick="goServers()">🌐 آدرس سرورها</button>
   </div>
+ </div>
+</header>
+
+<div class="stats">
+ <div class="stat"><strong>1,200+</strong><small>بازیکن آنلاین</small></div>
+ <div class="stat"><strong>24/7</strong><small>فعالیت شبکه</small></div>
+ <div class="stat"><strong>PREMIUM</strong><small>تجربه بازی</small></div>
+</div>
+
+<main class="container">
+
+<section id="servers">
+ <div class="section-head">
+  <div>
+   <h2>🌐 شبکه سرورهای امیر سیتی</h2>
+   <p>آدرس موردنظرت رو کپی کن و وارد دنیای بازی شو!</p>
+  </div>
+  <span class="eyebrow">SERVER NETWORK</span>
+ </div>
+
+ <div class="servers">
+  <div class="server-card green">
+   <div class="server-icon">🟢</div>
+   <h3>AMIR CITY</h3>
+   <div class="server-ip">Amir_City.aternos.me</div>
+   <button class="copy" onclick="copyServer('Amir_City.aternos.me')">📋 کپی آدرس</button>
+  </div>
+  <div class="server-card blue">
+   <div class="server-icon">🔵</div>
+   <h3>AMIR CITY NETWORK</h3>
+   <div class="server-ip">AmirCity.exaroton.me</div>
+   <button class="copy" onclick="copyServer('AmirCity.exaroton.me')">📋 کپی آدرس</button>
+  </div>
+  <div class="server-card purple">
+   <div class="server-icon">🟣</div>
+   <h3>AMIR CITY SPECIAL</h3>
+   <div class="server-ip">AmirCity-wBPC.aternos.me</div>
+   <button class="copy" onclick="copyServer('AmirCity-wBPC.aternos.me')">📋 کپی آدرس</button>
+  </div>
+ </div>
 </section>
+
+<section id="shop" style="margin-top:55px">
+ <div class="section-head">
+  <div>
+   <h2>💎 فروشگاه اختصاصی</h2>
+   <p>محصولات موردنظرت رو انتخاب کن و به سبد خرید اضافه کن</p>
+  </div>
+  <span class="eyebrow">OFFICIAL STORE</span>
+ </div>
+
+ <div class="categories">
+  <button class="category active" onclick="setCategory('همه',this)">
+   <span class="symbol">💎</span>همه محصولات
+   <small>ALL ITEMS</small>
+  </button>
+  <button class="category" onclick="setCategory('عمومی',this)">
+   <span class="symbol">👑</span>عمومی
+   <small>GENERAL</small>
+  </button>
+  <button class="category" onclick="setCategory('رول پلی',this)">
+   <span class="symbol">🏙️</span>رول‌پلی
+   <small>ROLEPLAY</small>
+  </button>
+  <button class="category" onclick="setCategory('سروایول',this)">
+   <span class="symbol">⛏️</span>سروایول
+   <small>SURVIVAL</small>
+  </button>
+ </div>
+
+ <input class="search" id="search" placeholder="🔍 جستجوی محصول..." oninput="render()">
+
+ <div class="products" id="products"></div>
+ <div class="empty" id="empty">محصولی پیدا نشد! 💔</div>
+</section>
+
+<section class="contact">
+ <div class="eyebrow">✦ CUSTOMER SUPPORT ✦</div>
+ <h2>📩 ثبت سفارش و پشتیبانی</h2>
+ <p>
+ برای خرید، عکس محصول موردنظرت رو به آیدی اونر ارسال کن
+ یا برای ثبت سفارش به شماره زیر پیام بده.
+ </p>
+ <div class="phone">09303332476</div>
+ <a class="btn primary" href="https://wa.me/989303332476">ارتباط با پشتیبانی ↗</a>
+</section>
+
+</main>
+
+<footer>
+ <strong>⚔ AMIR CITY NETWORK</strong>
+ <p>✦ ساخته شده برای بازیکنان حرفه‌ای ماینکرفت ✦</p>
+</footer>
+
+<!-- پنجره سبد خرید -->
+<div class="overlay" id="cartOverlay" onclick="outsideClose(event)">
+ <div class="cart-box">
+  <div class="cart-header">
+   <h2>🛒 سبد خرید شما</h2>
+   <button class="close" onclick="closeCart()">×</button>
+  </div>
+
+  <div id="cartContent">
+   <div id="cartItems"></div>
+   <div class="cart-total">
+    <span>مبلغ کل:</span>
+    <span id="cartTotal">۰ تومان</span>
+   </div>
+   <div class="cart-actions">
+    <button class="confirm" onclick="submitOrder()">ثبت سفارش ✅</button>
+    <button class="cancel" onclick="closeCart()">بستن</button>
+   </div>
+  </div>
+
+  <div class="success-message" id="successMessage">
+   <div class="success-icon">✅</div>
+   <h2>سفارش شما ثبت شد!</h2>
+   <p>
+    سفارش شما آماده ارسال است.<br>
+    برای نهایی شدن، اطلاعات سفارش رو به واتساپ اونر ارسال کن.
+   </p>
+   <button class="buy" onclick="sendOrder()">📩 ارسال سفارش به اونر</button>
+   <button class="done-btn" onclick="finishOrder()">بستن و پایان</button>
+  </div>
+ </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+
+// محصولات فروشگاه
+const products=[
+
+{name:"تغییر رنگ چت",cat:"عمومی",price:5000,icon:"💬",desc:"تغییر رنگ و ظاهر پیام‌های چت",img:"https://servers.gameup.ir/storage/cc0bd775-fb38-4647-9541-5418956674d6.webp"},
+
+{name:"تغییر اسم و رنگ",cat:"عمومی",price:14000,icon:"✨",desc:"اسم و رنگ نمایشی اختصاصی",img:"https://servers.gameup.ir/storage/617cc6c9-5902-47e3-b598-6184a175c5c2.webp"},
+
+{name:"دور زدن کول‌داون چت",cat:"عمومی",price:14000,icon:"⚡",desc:"آزادی بیشتر در ارسال پیام",img:"https://servers.gameup.ir/storage/ce0b311c-37b7-46da-8940-787167f78a60.webp"},
+
+{name:"دور زدن AFK",cat:"عمومی",price:14000,icon:"🛡️",desc:"امکانات ویژه AFK",img:"https://servers.gameup.ir/storage/b3878c4e-57e8-4dd8-889f-328404101f4f.webp"},
+
+{name:"منوی گلو",cat:"عمومی",price:7000,icon:"🌟",desc:"افکت‌های نمایشی جذاب",img:"https://servers.gameup.ir/storage/32bf7250-25a3-49cc-916d-419b7cd86da1.webp"},
+
+{name:"رنگ چت پیشرفته",cat:"عمومی",price:14000,icon:"🎨",desc:"ظاهر اختصاصی چت",img:"https://servers.gameup.ir/storage/ab4696c1-d042-4466-85e7-9ef02cee9ec7.webp"},
+
+{name:"کازمتیک ۱۱ دسته",cat:"عمومی",price:35000,icon:"💎",desc:"دسترسی به ۱۱ دسته کازمتیک",img:"https://servers.gameup.ir/storage/b2867503-c898-441d-9608-068b1181ad9a.webp"},
+
+{name:"کازمتیک ۷ دسته",cat:"عمومی",price:25000,icon:"👑",desc:"دسترسی به ۷ دسته کازمتیک",img:"https://servers.gameup.ir/storage/0ff03ddf-7572-4665-88b0-25308bea0b06.webp"},
+
+{name:"کازمتیک ۵ دسته",cat:"عمومی",price:15000,icon:"✨",desc:"دسترسی به ۵ دسته کازمتیک",img:"https://servers.gameup.ir/storage/20d809ad-cd3e-473c-bba0-e1919ba498e1.webp"},
+
+{name:"کازمتیک ۳ دسته",cat:"عمومی",price:8000,icon:"🎭",desc:"دسترسی به ۳ دسته کازمتیک",img:"https://servers.gameup.ir/storage/1ece3369-47d3-4f2e-9a57-516a21bdf3a6.webp"},
+
+// این محصولات نمونه هستند؛ قیمت و نام واقعی خودت را وارد کن
+
+{name:"VIP رول‌پلی",cat:"رول پلی",price:50000,icon:"👑",desc:"امکانات ویژه رول‌پلی",img:""},
+
+{name:"ماشین اختصاصی",cat:"رول پلی",price:30000,icon:"🚘",desc:"وسیله نقلیه ویژه",img:""},
+
+{name:"خانه اختصاصی",cat:"رول پلی",price:40000,icon:"🏠",desc:"خانه شخصی در شهر",img:""},
+
+{name:"VIP سروایول",cat:"سروایول",price:50000,icon:"⚔️",desc:"امکانات ویژه بقا",img:""},
+
+{name:"کیت الماس",cat:"سروایول",price:20000,icon:"💎",desc:"تجهیزات شروع قدرتمند",img:""},
+
+{name:"زمین اختصاصی",cat:"سروایول",price:30000,icon:"🌳",desc:"زمین اختصاصی در سرور",img:""}
+
+];
+
+let selected="همه";
+let cart=[];
+let pendingMessage="";
+
+function render(){
+ const q=document.getElementById("search").value.trim().toLowerCase();
+
+ const list=products.filter(p=>
+ (selected==="همه"||p.cat===selected)&&
+ p.name.toLowerCase().includes(q)
+ );
+
+ document.getElementById("products").innerHTML=list.map(p=>`
+ <article class="product">
+  <div class="product-image">
+   <span class="tag">${p.cat}</span>
+   ${p.img?`<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">`:""}
+   <span class="fallback" style="${p.img?"display:none":""}">${p.icon}</span>
+  </div>
+  <div class="product-info">
+   <h3>${p.icon} ${p.name}</h3>
+   <p>${p.desc}</p>
+   <div class="price-row">
+    <span class="price">${p.price.toLocaleString("fa-IR")} تومان</span>
+    <span>✦</span>
+   </div>
+   <button class="buy" onclick="addToCart(${products.indexOf(p)})">
+    🛒 افزودن به سبد خرید
+   </button>
+  </div>
+ </article>
+ `).join("");
+
+ document.getElementById("empty").style.display=list.length?"none":"block";
+}
+
+function setCategory(cat,button){
+ selected=cat;
+ document.querySelectorAll(".category").forEach(b=>b.classList.remove("active"));
+ button.classList.add("active");
+ render();
+}
+
+// افزودن محصول
+function addToCart(index){
+ const p=products[index];
+ const found=cart.find(x=>x.name===p.name);
+
+ if(found)found.qty++;
+ else cart.push({...p,qty:1});
+
+ updateCart();
+ showToast("✅ محصول به سبد خرید اضافه شد");
+}
+
+// به‌روزرسانی سبد خرید
+function updateCart(){
+ const count=cart.reduce((sum,p)=>sum+p.qty,0);
+ document.getElementById("cartCount").textContent=count.toLocaleString("fa-IR");
+
+ const box=document.getElementById("cartItems");
+
+ if(!cart.length){
+  box.innerHTML='<div class="empty-cart">🛒 سبد خرید شما خالی است.</div>';
+ }else{
+  box.innerHTML=cart.map((p,i)=>`
+   <div class="cart-item">
+    <div>
+     <strong>${p.icon} ${p.name}</strong>
+     <small>${p.price.toLocaleString("fa-IR")} تومان</small>
+    </div>
+    <div class="item-actions">
+     <button class="qty-btn" onclick="changeQty(${i},1)">+</button>
+     <span>${p.qty.toLocaleString("fa-IR")}</span>
+     <button class="qty-btn" onclick="changeQty(${i},-1)">−</button>
+     <button class="remove" onclick="removeItem(${i})">حذف</button>
+    </div>
+   </div>
+  `).join("");
+ }
+
+ const total=cart.reduce((sum,p)=>sum+p.price*p.qty,0);
+ document.getElementById("cartTotal").textContent=
+ total.toLocaleString("fa-IR")+" تومان";
+}
+
+function changeQty(index,amount){
+ cart[index].qty+=amount;
+ if(cart[index].qty<=0)cart.splice(index,1);
+ updateCart();
+}
+
+function removeItem(index){
+ cart.splice(index,1);
+ updateCart();
+ showToast("محصول از سبد حذف شد");
+}
+
+function openCart(){
+ updateCart();
+ document.getElementById("cartOverlay").style.display="flex";
+}
+
+function closeCart(){
+ document.getElementById("cartOverlay").style.display="none";
+}
+
+function outsideClose(event){
+ if(event.target.id==="cartOverlay")closeCart();
+}
+
+// ثبت سفارش و نمایش پیام موفقیت
+function submitOrder(){
+ if(!cart.length){
+  showToast("سبد خرید خالی است!");
+  return;
+ }
+
+ const total=cart.reduce((s,p)=>s+p.price*p.qty,0);
+
+ pendingMessage=
+ "سلام، سفارش جدید از فروشگاه AMIR CITY:\n\n"+
+ cart.map(p=>
+ p.name+" × "+p.qty+" = "+
+ (p.price*p.qty).toLocaleString("fa-IR")+" تومان"
+ ).join("\n")+
+ "\n\nمجموع: "+total.toLocaleString("fa-IR")+" تومان";
+
+ document.getElementById("cartContent").style.display="none";
+ document.getElementById("successMessage").style.display="block";
+}
+
+// ارسال سفارش به واتساپ
+function sendOrder(){
+ const url="https://wa.me/989303332476?text="+
+ encodeURIComponent(pendingMessage);
+ window.open(url,"_blank");
+}
+
+// پایان سفارش
+function finishOrder(){
+ cart=[];
+ pendingMessage="";
+ updateCart();
+ document.getElementById("cartContent").style.display="block";
+ document.getElementById("successMessage").style.display="none";
+ closeCart();
+ showToast("از خرید شما ممنونیم ❤️");
+}
+
+async function copyServer(ip){
+ try{
+  await navigator.clipboard.writeText(ip);
+  showToast("✅ آدرس کپی شد: "+ip);
+ }catch(e){
+  showToast("آدرس سرور: "+ip);
+ }
+}
+
+function showToast(message){
+ const el=document.getElementById("toast");
+ el.textContent=message;
+ el.style.display="block";
+ clearTimeout(window.toastTimer);
+ window.toastTimer=setTimeout(()=>el.style.display="none",3000);
+}
+
+function goShop(){
+ document.getElementById("shop").scrollIntoView({behavior:"smooth"});
+}
+function goServers(){
+ document.getElementById("servers").scrollIntoView({behavior:"smooth"});
+}
+
+render();
+updateCart();
+
+</script>
 </body>
 </html>
