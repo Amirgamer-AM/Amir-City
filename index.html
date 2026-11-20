@@ -1,301 +1,211 @@
 
-// شماره واتساپ مدیر فروشگاه را اینجا وارد کن
-// مثال: 989121234567
-const WHATSAPP_NUMBER = "";
+<!doctype html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#100b19">
+  <title>Amir City | فروشگاه</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-// محصولات فروشگاه
-const products = [
-  {
-    id: 1,
-    name: "ارتقای وسیله نقلیه",
-    description: "ارتقای وسیله نقلیه در شهر",
-    price: 100000,
-    category: "roleplay",
-    image: "vehicle-upgrade.jpg"
-  },
-  {
-    id: 2,
-    name: "آیتم جادویی",
-    description: "دریافت آیتم ویژه و خاص",
-    price: 150000,
-    category: "roleplay",
-    image: "magic-item.jpg"
-  },
-  {
-    id: 3,
-    name: "کیت ویژه",
-    description: "دریافت کیت اختصاصی",
-    price: 200000,
-    category: "roleplay",
-    image: "special-kit.jpg"
-  },
-  {
-    id: 4,
-    name: "حقوق اضافه",
-    description: "دریافت حقوق بیشتر",
-    price: 120000,
-    category: "roleplay",
-    image: "extra-salary.jpg"
-  },
-  {
-    id: 5,
-    name: "اجاره ماشین",
-    description: "اجاره خودروی ویژه",
-    price: 180000,
-    category: "roleplay",
-    image: "car-rental.jpg"
-  },
-  {
-    id: 6,
-    name: "سود بانکی",
-    description: "دریافت سود بیشتر بانکی",
-    price: 130000,
-    category: "roleplay",
-    image: "bank-profit.jpg"
-  },
-  {
-    id: 7,
-    name: "دو برابر XP",
-    description: "افزایش تجربه دریافتی",
-    price: 90000,
-    category: "roleplay",
-    image: "double-xp.jpg"
-  },
-  {
-    id: 8,
-    name: "خانه حراج",
-    description: "امکانات ویژه خانه حراج",
-    price: 160000,
-    category: "roleplay",
-    image: "auction-house.jpg"
-  }
-];
+<body>
 
-let currentFilter = "all";
-let cart = JSON.parse(localStorage.getItem("amirCityCart") || "[]");
+  <header class="site-header">
+    <a class="brand" href="index.html">
+      <span class="brand-icon">AC</span>
+      <span>
+        AMIR CITY
+        <small>فروشگاه سرور ماینکرفت</small>
+      </span>
+    </a>
 
-function formatPrice(price) {
-  return price.toLocaleString("fa-IR") + " تومان";
-}
+    <nav>
+      <a href="index.html">خانه</a>
+      <a href="roleplay.html">رول‌پلی</a>
+      <a href="survival.html">سروایول</a>
+      <a href="general.html">عمومی</a>
+    </nav>
 
-function renderProducts() {
-  const container = document.getElementById("products");
-  const search = document.getElementById("search");
-  const sort = document.getElementById("sort");
-  const noResults = document.getElementById("no-results");
+    <button class="cart-open" onclick="openCart()">
+      سبد خرید <b id="cart-count">۰</b>
+    </button>
+  </header>
 
-  if (!container) return;
+  <main>
 
-  const searchText = search ? search.value.trim().toLowerCase() : "";
+    <section class="hero">
+      <div>
+        <span class="eyebrow">WELCOME TO AMIR CITY</span>
 
-  let filtered = products.filter(product => {
-    const matchesCategory =
-      currentFilter === "all" ||
-      product.category === currentFilter;
+        <h1 id="hero-title">فروشگاه امیر سیتی</h1>
 
-    const matchesSearch =
-      product.name.toLowerCase().includes(searchText) ||
-      product.description.toLowerCase().includes(searchText);
+        <p id="hero-desc">
+          محصولات و امکانات ویژه سرور ماینکرفت را انتخاب کن.
+        </p>
 
-    return matchesCategory && matchesSearch;
-  });
+        <div class="hero-actions">
+          <a class="btn primary" href="roleplay.html">
+            خرید رول‌پلی
+          </a>
 
-  if (sort) {
-    if (sort.value === "low") {
-      filtered.sort((a, b) => a.price - b.price);
-    } else if (sort.value === "high") {
-      filtered.sort((a, b) => b.price - a.price);
-    } else if (sort.value === "name") {
-      filtered.sort((a, b) => a.name.localeCompare(b.name));
-    }
-  }
-
-  container.innerHTML = filtered.map(product => `
-    <article class="product-card">
-      <div class="product-image">
-        <img
-          src="images/${product.image}"
-          alt="${product.name}"
-          onerror="this.style.display='none'"
-        >
-      </div>
-
-      <div class="product-info">
-        <h3>${product.name}</h3>
-        <p>${product.description}</p>
-
-        <div class="product-bottom">
-          <strong>${formatPrice(product.price)}</strong>
-
-          <button
-            class="btn primary"
-            onclick="addToCart(${product.id})"
-          >
-            افزودن به سبد
-          </button>
+          <a class="btn ghost" href="#catalog">
+            دیدن محصولات
+          </a>
         </div>
-      </div>
-    </article>
-  `).join("");
 
-  if (noResults) {
-    noResults.hidden = filtered.length !== 0;
-  }
-}
-
-function setFilter(filter, button) {
-  currentFilter = filter;
-
-  document.querySelectorAll(".filter").forEach(item => {
-    item.classList.remove("active");
-  });
-
-  if (button) {
-    button.classList.add("active");
-  }
-
-  renderProducts();
-}
-
-function saveCart() {
-  localStorage.setItem("amirCityCart", JSON.stringify(cart));
-  updateCart();
-}
-
-function addToCart(id) {
-  const product = products.find(item => item.id === id);
-  if (!product) return;
-
-  const existing = cart.find(item => item.id === id);
-
-  if (existing) {
-    existing.quantity++;
-  } else {
-    cart.push({
-      id: product.id,
-      quantity: 1
-    });
-  }
-
-  saveCart();
-  openCart();
-}
-
-function updateCart() {
-  const count = cart.reduce(
-    (sum, item) => sum + item.quantity,
-    0
-  );
-
-  const countElement = document.getElementById("cart-count");
-  if (countElement) {
-    countElement.textContent = count.toLocaleString("fa-IR");
-  }
-
-  const itemsContainer = document.getElementById("cart-items");
-  const totalElement = document.getElementById("cart-total");
-
-  if (!itemsContainer || !totalElement) return;
-
-  let total = 0;
-
-  if (cart.length === 0) {
-    itemsContainer.innerHTML = "<p>سبد خرید شما خالی است.</p>";
-  } else {
-    itemsContainer.innerHTML = cart.map(item => {
-      const product = products.find(p => p.id === item.id);
-      if (!product) return "";
-
-      total += product.price * item.quantity;
-
-      return `
-        <div class="cart-item">
+        <div class="stats">
           <div>
-            <strong>${product.name}</strong>
-            <p>${formatPrice(product.price)}</p>
+            <b>۲۴/۷</b>
+            <small>دسترسی فروشگاه</small>
           </div>
 
-          <div class="quantity">
-            <button onclick="changeQuantity(${item.id}, 1)">+</button>
-            <span>${item.quantity.toLocaleString("fa-IR")}</span>
-            <button onclick="changeQuantity(${item.id}, -1)">−</button>
+          <div>
+            <b>امن</b>
+            <small>ثبت سفارش</small>
+          </div>
+
+          <div>
+            <b>MC</b>
+            <small>دنیای ماینکرفت</small>
           </div>
         </div>
-      `;
-    }).join("");
-  }
+      </div>
 
-  totalElement.textContent = formatPrice(total);
-}
+      <div class="hero-visual">
+        <div class="orb"></div>
+        <div class="block-logo">
+          AMIR<br>CITY
+        </div>
+        <span class="floating">MINECRAFT STORE</span>
+      </div>
+    </section>
 
-function changeQuantity(id, change) {
-  const item = cart.find(product => product.id === id);
-  if (!item) return;
+    <section class="catalog" id="catalog">
 
-  item.quantity += change;
+      <div class="section-title">
+        <div>
+          <span class="eyebrow">STORE</span>
+          <h2 id="section-title">محصولات فروشگاه</h2>
+          <p>
+            محصول موردنظرت رو پیدا کن و به سبد خرید اضافه کن.
+          </p>
+        </div>
 
-  if (item.quantity <= 0) {
-    cart = cart.filter(product => product.id !== id);
-  }
+        <div class="tools">
+          <input
+            id="search"
+            type="search"
+            placeholder="جستجوی محصول..."
+            oninput="renderProducts()"
+          >
 
-  saveCart();
-}
+          <select id="sort" onchange="renderProducts()">
+            <option value="default">مرتب‌سازی</option>
+            <option value="low">ارزان‌ترین</option>
+            <option value="high">گران‌ترین</option>
+            <option value="name">نام محصول</option>
+          </select>
+        </div>
+      </div>
 
-function openCart() {
-  document.getElementById("cart-drawer")?.classList.add("open");
-  document.getElementById("overlay")?.classList.add("show");
-}
+      <div class="filters">
+        <button
+          class="filter active"
+          data-filter="all"
+          onclick="setFilter('all',this)"
+        >
+          همه
+        </button>
 
-function closeCart() {
-  document.getElementById("cart-drawer")?.classList.remove("open");
-  document.getElementById("overlay")?.classList.remove("show");
-}
+        <button
+          class="filter"
+          data-filter="roleplay"
+          onclick="setFilter('roleplay',this)"
+        >
+          رول‌پلی
+        </button>
 
-function checkout() {
-  if (cart.length === 0) {
-    alert("سبد خرید شما خالی است!");
-    return;
-  }
+        <button
+          class="filter"
+          data-filter="survival"
+          onclick="setFilter('survival',this)"
+        >
+          سروایول
+        </button>
 
-  if (!WHATSAPP_NUMBER) {
-    alert("ابتدا شماره واتساپ را در فایل script.js وارد کن.");
-    return;
-  }
+        <button
+          class="filter"
+          data-filter="general"
+          onclick="setFilter('general',this)"
+        >
+          عمومی
+        </button>
+      </div>
 
-  const note =
-    document.getElementById("customer-note")?.value || "";
+      <div id="products" class="products"></div>
 
-  let message = "سلام، برای خرید از فروشگاه Amir City سفارش دارم:\n\n";
-  let total = 0;
+      <p id="no-results" class="no-results" hidden>
+        محصولی با این مشخصات پیدا نشد.
+      </p>
 
-  cart.forEach(item => {
-    const product = products.find(p => p.id === item.id);
-    if (!product) return;
+    </section>
 
-    const subtotal = product.price * item.quantity;
-    total += subtotal;
+  </main>
 
-    message +=
-      `${product.name} × ${item.quantity}\n` +
-      `${formatPrice(subtotal)}\n\n`;
-  });
+  <footer>
+    <b>AMIR CITY</b>
+    <p>فروشگاه رسمی سرور ماینکرفت</p>
+    <small>© تمامی حقوق برای Amir City محفوظ است.</small>
+  </footer>
 
-  message += `مجموع: ${formatPrice(total)}\n`;
+  <div
+    class="overlay"
+    id="overlay"
+    onclick="closeCart()"
+  ></div>
 
-  if (note.trim()) {
-    message += `توضیحات: ${note}\n`;
-  }
+  <aside class="cart-drawer" id="cart-drawer">
 
-  const url =
-    "https://wa.me/" +
-    WHATSAPP_NUMBER +
-    "?text=" +
-    encodeURIComponent(message);
+    <div class="cart-head">
+      <h2>سبد خرید شما</h2>
+      <button onclick="closeCart()">✕</button>
+    </div>
 
-  window.open(url, "_blank");
-}
+    <div id="cart-items"></div>
 
-document.addEventListener("DOMContentLoaded", () => {
-  renderProducts();
-  updateCart();
-});
+    <div class="cart-footer">
+
+      <div class="total">
+        <span>مجموع</span>
+        <b id="cart-total">۰ تومان</b>
+      </div>
+
+      <label for="customer-note">
+        توضیحات سفارش (اختیاری)
+      </label>
+
+      <textarea
+        id="customer-note"
+        rows="2"
+        placeholder="مثلاً آیدی داخل بازی..."
+      ></textarea>
+
+      <button
+        class="btn primary full"
+        onclick="checkout()"
+      >
+        ثبت سفارش در واتساپ
+      </button>
+
+      <small class="hint">
+        برای فعال شدن ثبت سفارش، شماره واتساپ را در فایل script.js تنظیم کن.
+      </small>
+
+    </div>
+  </aside>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
