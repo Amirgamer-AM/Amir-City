@@ -131,8 +131,7 @@ a{text-decoration:none;color:inherit}
 .category:hover,.category.active{
  border-color:var(--purple);
  background:
-
-linear-gradient(145deg,#2a2045,#18182c)
+فاطمه میری: linear-gradient(145deg,#2a2045,#18182c)
 }
 .category .symbol{display:block;font-size:31px;margin-bottom:7px}
 .category small{display:block;color:var(--muted);margin-top:4px;font-size:10px}
@@ -252,8 +251,7 @@ footer{
 @media(max-width:550px){
  .stats{gap:6px}
  .st
-
-at{padding:12px 3px}
+فاطمه میری: at{padding:12px 3px}
  .stat strong{font-size:15px}
  .stat small{font-size:9px}
  .categories{gap:7px}
@@ -391,8 +389,7 @@ at{padding:12px 3px}
     <span id="cartTotal">۰ تومان</span>
    </div>
    <div class="cart-
-
-actions">
+فاطمه میری: actions">
     <button class="confirm" onclick="submitOrder()">ثبت سفارش ✅</button>
     <button class="cancel" onclick="closeCart()">بستن</button>
    </div>
@@ -440,17 +437,17 @@ const products=[
 
 // این محصولات نمونه هستند؛ قیمت و نام واقعی خودت را وارد کن
 
-{name:"VIP رول‌پلی",cat:"رول پلی",price:یک ماهه 21 ت یک ساله 214200icon:"👑",desc:"ابا فعال‌سازی این آیتم، یک کیت اختصاصی ویژه شامل ابزارها و تجهیزات دریافت خواهید کرد",img:"https://servers.gameup.ir/storage/075ddbfb-066a-4cb0-ab24-860448c4185f.jpg"},
+{name:"VIP رول‌پلی",cat:"رول پلی",price:50000,icon:"👑",desc:"امکانات ویژه رول‌پلی",img:""},
 
-{name:"افزایش حقوق شهروندی",cat:"رول پلی",price:یک ماهه 14000 ت یک ساله 142800,icon:"🚘",desc:"هر بار که حقوق شهروندی دریافت می‌کنید، مبلغ ۲۰۰۰ دلار اضافه‌تر به حساب شما واریز می‌شود",img:"https://servers.gameup.ir/storage/420595ac-e537-4b7b-81c2-4080fc1ad7a3.jpg"},
+{name:"ماشین اختصاصی",cat:"رول پلی",price:30000,icon:"🚘",desc:"وسیله نقلیه ویژه",img:""},
 
-{name:"افزایش محدودیت فروش مزایده",cat:"رول پلی",price:یک ماهه 13000 ت یک ساله 132600 ت ,icon:"🏠",desc:"با این قابلیت می‌توانید حداکثر ۸ آیتم را همزمان در خانه‌ی مزایده قرار",img:"https://servers.gameup.ir/storage/36a13b3a-3322-4543-a643-7bca3803c8f7.jpg"},
+{name:"خانه اختصاصی",cat:"رول پلی",price:40000,icon:"🏠",desc:"خانه شخصی در شهر",img:""},
 
-{name:"قابلیت پرواز",cat:"سروایول",price:یک ماهه 10000 ت یک ساله 102000 ت ,icon:"⚔️",desc:"به شما قابلیت پرواز میدهد",img:"https://servers.gameup.ir/storage/7720617d-8ff3-463b-879d-3165af8add59.webp"},
+{name:"VIP سروایول",cat:"سروایول",price:50000,icon:"⚔️",desc:"امکانات ویژه بقا",img:""},
 
-{name:"افزایش تعداد پی وارپ مجاز ده عددی",cat:"سروایول",price:یک ماهه 7000 ت یک ساله 71400 ت ,icon:"💎",desc:"میتوانید ده وارپ بیشتر بسازید",img:"https://servers.gameup.ir/storage/75dff393-c0d9-44be-bdc7-4ebd5f558ff3.webp"},
+{name:"کیت الماس",cat:"سروایول",price:20000,icon:"💎",desc:"تجهیزات شروع قدرتمند",img:""},
 
-{name:"افزایش تعداد ساختن sethome شش عددی",cat:"سروایول",price:یک ماهه 5000 ت یک ساله 51000 ت ,icon:"🌳",desc:"میتوانید شش sethome اضافه داشته باشید",img:"https://servers.gameup.ir/storage/945d2df9-b881-435b-a826-8138a9d2a268.webp"}
+{name:"زمین اختصاصی",cat:"سروایول",price:30000,icon:"🌳",desc:"زمین اختصاصی در سرور",img:""}
 
 ];
 
@@ -491,7 +488,6 @@ function render(){
 }
 
 function setCategory(cat,button){
-
 selected=cat;
  document.querySelectorAll(".category").forEach(b=>b.classList.remove("active"));
  button.classList.add("active");
